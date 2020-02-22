@@ -31,7 +31,7 @@ public class RecursieTest {
 	
 	@Test
 	public void testOef1_Fibonacci_Met_parameter_groter_dan_2_Geeft_som_van_2_voorgaande() {
-		int n = (int) ((Math.random() * 30) + 2);  
+		int n = (int) ((Math.random() * 30) + 3);  
 		int f1 = Recursie.fibonacci(n-2);
 		int f2 = Recursie.fibonacci(n-1);
 		int f = Recursie.fibonacci(n);
