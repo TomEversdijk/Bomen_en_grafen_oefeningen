@@ -1,0 +1,33 @@
+% Graaf oefening 1 Kortste pad
+\begin{tikzpicture}[scale=1]
+ \SetUpEdge[lw         = 1pt,
+            color      = black,
+            labelcolor = white]
+  \GraphInit[vstyle=Normal] 
+  \SetGraphUnit{2.5}
+  \Vertex{3}
+  \WE(3){1} 
+  \NO(3){2} 
+  \SO(3){4}
+  \EA(3){5}
+  \SOEA(5){8}
+  \NOEA(5){6}
+  \EA(5){7}
+ 
+  \Edge[label=$7$](1)(2)
+  \Edge[label=$6$](1)(4)
+  \Edge[label=$4$](2)(3)
+  \Edge[label=$6$](2)(6)
+  \Edge[label=$9$](4)(8)
+  \Edge[label=$3$](5)(6)
+  \Edge[label=$8$](5)(7)
+  \Edge[label=$6$](6)(7)
+\tikzset{EdgeStyle/.style={-latex}}  
+  \Edge[label=$2$](2)(5)
+  \Edge[label=$3$](3)(1)
+  \Edge[label=$1$](4)(3)
+  \Edge[label=$5$](5)(3)
+  \Edge[label=$7$](7)(8)
+  \Edge[label=$4$](8)(5)
+\end{tikzpicture}
+

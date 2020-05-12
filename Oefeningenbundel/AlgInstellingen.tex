@@ -1,0 +1,117 @@
+\documentclass[DIV=10,BCOR=0cm,numbers=noenddot,parskip=half]{scrbook}
+
+\usepackage{showlabels}
+\usepackage[utf8]{inputenc}
+\usepackage[dutch]{babel}
+\usepackage{graphicx}
+\usepackage{fancyvrb}
+\usepackage[labelsep=space,hang,small,bf]{caption}
+%\usepackage{subfig}
+%\usepackage{subfigure} 
+\usepackage{subcaption}
+\usepackage{cprotect} % om verb in caption te gebruiken
+\usepackage{pifont} % TODO
+\usepackage{amsmath}
+\usepackage{textcomp} %voor euro met nieuw command \euros{}
+\usepackage[charter]{quotchap}
+\usepackage{varioref}
+\usepackage{answers} %Voor oefeningen en oplossingen
+\usepackage{amsthm} %ook nodig voor oefeningen en oplossingen
+\usepackage{enumitem} %gemakkelijk enumerate met letters etc
+\usepackage{float}
+\usepackage{boxedminipage}
+\usepackage[scaled]{beramono}
+\usepackage[T1]{fontenc}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage{multirow} 
+\usepackage{multicol}
+\usepackage{colortbl}
+\usepackage{wrapfig}
+\usepackage{microtype}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.12}
+\usepackage{tkz-graph}
+\usepackage{tikzsymbols}
+\usepackage{pdfpages}
+\usepackage[bitstream-charter]{mathdesign}
+\usepackage[colorlinks,citecolor=spot,linkcolor=spot,urlcolor=spot]{hyperref} %Voor screenpdf
+\usepackage{hyperref}
+\usepackage[dutch]{cleveref} % moet laatste staan!
+
+\usetikzlibrary{patterns,topaths,arrows,calc,decorations.markings,positioning}
+\frenchspacing
+
+
+
+%%%%%%%%% kleuren %%%%%%%%%%%%%
+% Kleuren. Voor het printen in enkel zwart en wit
+% kan je kleuren herdefiniëren. Dit wordt dan automatisch
+% aangepast, zowel in \textcolor commando's, als in
+% TikZ tekening met \draw[kleur ...] ...
+\definecolor{grijs}{rgb}{0.95,0.95,0.95}
+\definecolor{donkergroen}{RGB}{1,74,0}
+\definecolor{spot}{rgb}{0,0.1,0.6}
+\definecolor{chaptergrey}{RGB}{84,106,150} %chaptertitel in blauw voor screenpdf
+%\definecolor{orange}{RGB}{0,0,0}
+
+% Geen schreefloze in titels enz.
+\setkomafont{sectioning}{\rmfamily\bfseries\boldmath}
+\setkomafont{descriptionlabel}{\rmfamily\bfseries}
+\addtokomafont{disposition}{\color{spot}} %hoofdstuktitels in blauw voor screenpdf
+
+%%%%%%%%% Voor oefeningen en oplossingen %%%%%%%%%%%
+\Newassociation{opl}{Oplossing}{ans}
+%\theoremstyle{definition} % want anders inhoud van oefeningen cursief
+\newtheoremstyle{oefblauw}{40pt}{}{}{}{\color{spot}\bfseries \Large}{\newline}{ }{}
+\theoremstyle{oefblauw}
+\newtheorem{oef}{Oefening}[chapter]
+\Opensolutionfile{ans}[ans1]
+\renewenvironment{Oplossing}[1]{\par\noindent\textbf{Oplossing #1}}{\bigskip}
+
+\newcommand{\oplossingen}{
+  \clearpage
+  \Closesolutionfile{ans}  
+  \chapter{Oplossingen}
+  \input{ans1}
+}
+
+\newcommand{\papier}{\includegraphics[width=5mm]{fig/papier.png}\ }
+\newcommand{\code}{\includegraphics[width=6mm]{fig/code.png}\ }
+
+
+%%%%%% Oefeningen met nummering a) b) c) %%%%%%%%%%
+\newlist{oefenumerate}{enumerate}{3} %via enumitem
+\setlist[oefenumerate]{label=\alph*),leftmargin=*}
+
+%%%%%% Tellers %%%%%%
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
+
+%%%%%%%%%% Code listings %%%%%%%%%%
+\lstset{%
+  language=java,%
+  basicstyle=\ttfamily\footnotesize,%
+  backgroundcolor=\color{grijs},%
+  frame=single,%
+  framerule=0.5pt,%
+  rulecolor=\color{grijs},%
+  tabsize=2,%
+  numbers=none,%
+  showstringspaces=false,%
+  framesep=5pt,
+  numberbychapter=false
+}
+
+\lstdefinestyle{inline}{basicstyle=\normalsize\ttfamily}
+
+%\newcommand{\code}[2][]{
+%  \begin{center}
+%    \begin{minipage}{.8\linewidth}
+%      \lstinputlisting[#1]{#2}
+%    \end{minipage}
+%  \end{center}
+%}

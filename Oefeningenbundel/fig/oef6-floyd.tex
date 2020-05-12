@@ -1,0 +1,25 @@
+% Graaf oefening 6 Kortste pad
+\begin{tikzpicture}[scale=1]
+ \SetUpEdge[lw         = 1pt,
+            color      = black,
+            labelcolor = white]
+  \GraphInit[vstyle=Normal] 
+  \SetGraphUnit{2.5}
+  \Vertex{A}
+  \SO(A){B} 
+  \SOEA(A){D}
+  \EA(D){E}
+  \NO(E){C}
+ 
+  \Edge[label=$9$](A)(B)
+  \Edge[label=$25$](A)(D)
+  \Edge[label=$20$](C)(D)
+  \Edge[label=$3$](D)(E)
+\tikzset{EdgeStyle/.style={-latex}} 
+  \Edge[label=$2$](C)(A)
+  \Edge[label=$2$](E)(C)
+\tikzset{EdgeStyle/.append style={bend left}}  
+  \Edge[label=$10$](A)(C)
+  \Edge[label=$11$](C)(E)
+\end{tikzpicture}
+

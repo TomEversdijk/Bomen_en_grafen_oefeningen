@@ -1,0 +1,33 @@
+% Graaf oefening 2
+\begin{tikzpicture}[scale=1]
+ \SetUpEdge[lw         = 1pt,
+            color      = black,
+            labelcolor = white]
+  \GraphInit[vstyle=Normal] 
+  \SetGraphUnit{2}
+  \Vertex{1}
+  \SOWE(1){2} 
+  \EA(1){3} 
+  \SO(2){4}
+  \SO(3){7}
+  \SO(4){5}
+  \SO(7){6}
+  \SO(6){8}
+  \NOEA(7){10}
+  \NOEA(8){9}
+%  \tikzset{EdgeStyle/.style={-latex}}
+  \Edge(1)(2)
+  \Edge(1)(3)
+  \Edge(2)(4)
+  \Edge(3)(4)
+  \Edge(4)(5)
+  \Edge(4)(6)
+  \Edge(4)(7)
+  \Edge(5)(8)
+  \Edge(6)(7)
+  \Edge(6)(8)
+  \Edge(7)(10)
+  \Edge(8)(9)
+  \Edge(9)(10)
+\end{tikzpicture}
+

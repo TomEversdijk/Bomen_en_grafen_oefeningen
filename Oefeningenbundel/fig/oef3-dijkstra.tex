@@ -1,0 +1,29 @@
+% Graaf oefening 3 Kortste pad
+\begin{tikzpicture}[scale=1]
+ \SetUpEdge[lw         = 1pt,
+            color      = black,
+            labelcolor = white]
+  \GraphInit[vstyle=Normal] 
+  \SetGraphUnit{2.5}
+  \Vertex{E}
+  \WE(E){D} 
+  \NO(E){B} 
+  \SO(E){G}
+  \EA(E){F}
+  \NOWE(E){A}
+  \NOEA(E){C}
+  \SOEA(E){H}
+
+\tikzset{EdgeStyle/.style={-latex}}  
+  \Edge[label=$1$](A)(B)
+  \Edge[label=$10$](A)(E)
+  \Edge[label=$8$](B)(E)
+  \Edge[label=$2$](C)(F)
+  \Edge[label=$15$](E)(D)
+  \Edge[label=$2$](E)(C)
+  \Edge[label=$5$](E)(F)
+  \Edge[label=$3$](E)(G)
+  \Edge[label=$5$](F)(H)
+  \Edge[label=$4$](G)(F)
+\end{tikzpicture}
+
