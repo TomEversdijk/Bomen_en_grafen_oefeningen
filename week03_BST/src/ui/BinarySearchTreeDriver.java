@@ -5,8 +5,7 @@ import domain.BinarySearchTree;
 public class BinarySearchTreeDriver {
 
 	public static void main(String[] args) {
-		BinarySearchTree<Integer> boom = new BinarySearchTree<>();
-		boom.addNode(6);
+		BinarySearchTree<Integer> boom = new BinarySearchTree<Integer>(6);
 		boom.addNode(4);
 		boom.addNode(8);
 		boom.addNode(3);
@@ -22,12 +21,10 @@ public class BinarySearchTreeDriver {
 	private static void printBoomInfo(BinarySearchTree<Integer> boom) {
 		if (boom == null) System.out.println("Lege boom");
 		else {
-			boom.printInOrder();
+			boom.printPreorder();
 			System.out.println();
-			if (!boom.isEmpty()) {
-				System.out.println("De grootste waarde uit deze boom = " + boom.searchGreatest());
-				System.out.println("De kleinste waarde uit deze boom = " + boom.searchSmallest());
-			}
+			System.out.println("De grootste waarde uit deze boom = " + boom.searchGreatest());
+			System.out.println("De kleinste waarde uit deze boom = " + boom.searchSmallest());
 		}
 
 
