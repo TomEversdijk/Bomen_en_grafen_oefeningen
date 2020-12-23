@@ -5,17 +5,14 @@ import java.util.List;
 import java.util.Queue;
 
 public class Graph {
-    private final boolean[][] verbindingsMatrix;
+    private final int[][] verbindingsMatrix;
     public static final int infty = Integer.MAX_VALUE;
 
     public Graph(int[][] matrix) {
         if (!isGeldigeVerbindingsMatrix(matrix))
             throw new IllegalArgumentException("No valid verbindingsmatrix");
 
-        this.verbindingsMatrix = new boolean[matrix.length][matrix.length];
-        for (int i = 0; i < matrix.length; i++)
-            for (int j = 0; j < matrix.length; j++)
-                this.verbindingsMatrix[i][j] = matrix[i][j] == 1;
+        this.verbindingsMatrix = matrix.clone();
     }
 
     private boolean isGeldigeVerbindingsMatrix(int[][] matrix) {
