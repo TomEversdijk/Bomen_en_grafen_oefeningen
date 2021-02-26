@@ -1,11 +1,8 @@
 package domain;
 
-/*
-Update the BinaryTree class in the domain folder with the BinaryTree of week 02
-* */
 public class BinarySearchTree<E extends Comparable<E>> extends BinaryTree<E> {
 
-	public BinarySearchTree(E data, BinaryTree<E> leftTree, BinaryTree<E> rightTree) {
+	public BinarySearchTree(E data, BinarySearchTree<E> leftTree, BinarySearchTree<E> rightTree) {
 		super(data, leftTree, rightTree);
 	}
 			
