@@ -39,7 +39,6 @@ public class Recursie {
                 return countX(rest_string);
             }
         }
-
     }
 
     //oefening 5 : countHi

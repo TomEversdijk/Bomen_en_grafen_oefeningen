@@ -17,10 +17,10 @@ public class BinaryTree<E>{
 		this.rightTree= rightTree;
 	}
 	
-	public void printPreorder(){
+	public void printInorder(){
+			if (this.leftTree != null) this.leftTree.printInorder();
 			System.out.print(this.data + " ");
-			if (this.leftTree != null) this.leftTree.printPreorder();
-			if (this.rightTree != null) this.rightTree.printPreorder();
+			if (this.rightTree != null) this.rightTree.printInorder();
 	}
 
 

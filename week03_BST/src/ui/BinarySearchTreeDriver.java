@@ -21,7 +21,7 @@ public class BinarySearchTreeDriver {
 	private static void printBoomInfo(BinarySearchTree<Integer> boom) {
 		if (boom == null) System.out.println("Lege boom");
 		else {
-			boom.printPreorder();
+			boom.printInorder();
 			System.out.println();
 			System.out.println("De grootste waarde uit deze boom = " + boom.searchGreatest());
 			System.out.println("De kleinste waarde uit deze boom = " + boom.searchSmallest());
