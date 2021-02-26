@@ -24,7 +24,22 @@ public class Recursie {
     //oefening 4: countX
 
     public static int countX(String s) {
-        throw new UnsupportedOperationException("Not yet implemented");
+        if (s == null){
+            throw new IllegalArgumentException("Cannot be null");
+        }
+        if (s.length() <= 0) {
+            return 0;
+        } else{
+            String first_element = s.substring(0,1);
+            String rest_string = s.substring(1);
+            if (first_element.equals("x")){
+                return 1 + countX(rest_string);
+            } else
+            {
+                return countX(rest_string);
+            }
+        }
+
     }
 
     //oefening 5 : countHi

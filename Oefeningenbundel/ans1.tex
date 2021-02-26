@@ -418,11 +418,11 @@ public boolean addNode(E data) {
 		return false; //geen twee keer zelfde data in BST
 	} else if (this.data.compareTo(data) > 0) {//ga naar linkersubboom
 		if (this.leftTree == null) {
-			this.leftTree = new BinaryTree<>(data);
+			this.leftTree = new BinarySearchTree<>(data);
 			return true;
 		} else return (this.leftTree.addNode(data));
 	} else if (this.rightTree == null) {
-		this.rightTree = new BinaryTree<>(data);
+		this.rightTree = new BinarySearchTree<>(data);
 		return true;
 	} else return (this.rightTree.addNode(data));
 }
