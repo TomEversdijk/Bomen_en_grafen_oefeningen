@@ -217,6 +217,40 @@ public class RecursieTest {
 		assertTrue(res.contains("abc"));
 	}
 	
+	@Test
+	public void testOef11_aantalKaarten_1_verdiepingen_Geeft_2() {
+		assertEquals(2, Recursie.aantalKaarten(1));
+	}
+
+	@Test
+	public void testOef11_aantalKaarten_2_verdiepingen_Geeft_7() {
+		assertEquals(7, Recursie.aantalKaarten(2));
+	}
+
+	@Test
+	public void testOef11_aantalKaarten_3_verdiepingen_Geeft_15() {
+		assertEquals(15, Recursie.aantalKaarten(3));
+	}
+
+	@Test
+	public void testOef11_aantalKaarten_12_verdiepingen_Geeft_222() {
+		assertEquals(222, Recursie.aantalKaarten(12));
+	}
+
+	@Test
+	public void testOef11_aantalKaarten_20_verdiepingen_Geeft_610() {
+		assertEquals(610, Recursie.aantalKaarten(20));
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void testOef11_aantalKaarten_Null_gooit_exception() {
+		Recursie.aantalKaarten(0);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void testOef11_aantalKaarten_negatief_gooit_exception() {
+		Recursie.aantalKaarten(-10);
+	}
 	
 	
 }
