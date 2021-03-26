@@ -14,7 +14,7 @@ public class BreadthFirstSearchUI {
 							{ 0, 0, 0, 0, 1, 1, 0 }, 
 							{ 0, 1, 0, 0, 0, 0, 1 }, 
 							{ 0, 0, 0, 0, 0, 0, 1 }, 
-							{ 0, 0, 0, 0, 0, 0, 0 } }; // verbindingsmatrix van graaf  uit  figuur  1.5  van  cursus
+							{ 0, 0, 0, 0, 0, 0, 0 } }; // verbindingsmatrix van graaf  uit  de slides
 		Graph bfs = new Graph(data);
 
 		int start = 1;
