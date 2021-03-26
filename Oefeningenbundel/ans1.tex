@@ -1677,7 +1677,7 @@ child { node {10}
 \begin{Oplossing}{7.1}
 $1\rightarrow2\rightarrow5\rightarrow8$ of $1\rightarrow4\rightarrow7\rightarrow8$
 \end{Oplossing}
-\begin{Oplossing}{7.3}
+\begin{Oplossing}{7.2}
 \begin{enumerate}
 \item Een verbindingsmatrix is correct indien
 \begin{itemize}
@@ -1688,7 +1688,7 @@ $1\rightarrow2\rightarrow5\rightarrow8$ of $1\rightarrow4\rightarrow7\rightarrow
 \item De waarden van de verbindingsmatrix kunnen slechts gelijk zijn aan $0$ en $1$. Het vraagt minder geheugenruimte en het werkt efficiënter als de elementen als een boolean voorgesteld worden.
 \end{enumerate}
 \end{Oplossing}
-\begin{Oplossing}{7.4}
+\begin{Oplossing}{7.3}
 \begin{lstlisting}[caption={findAncestors(int,int)}, label=BFSAncestors]
 private boolean rechtstreekseVerbinding(int van, int tot) {
 	//System.out.println("verbinding van "+van+" tot "+tot+"?");
@@ -1741,7 +1741,7 @@ private void initArray(int[] array, int value) {
 }
 \end{lstlisting}
 \end{Oplossing}
-\begin{Oplossing}{7.5}
+\begin{Oplossing}{7.4}
 \begin{lstlisting}[caption={findPath}, label=BFSfindPath]
 public List<Integer> findPath(int start, int destination) {
 	if (start <= 0 || start > this.getAantalKnopen() || destination <= 0 ||
