@@ -21,19 +21,17 @@ public class WeightedGraph {
         return gewichtenMatrix.length;
     }
 
-    public int[][] findDistances() {
-        int[][] path = new int[getAantalKnopen()][getAantalKnopen()];
-        double[][] distanceMatrix = this.gewichtenMatrix.clone();
+    public int[][] getPointerMatrix() {
+        int[][] pointerMatrix = new int[getAantalKnopen()][getAantalKnopen()];
+        double[][] DMatrix = this.gewichtenMatrix.clone();
 
-		// oefening 2.3
 
-		return path;
+		return pointerMatrix;
 	}
 
-	public List<Integer> getShortestPath(int i, int j, int[][] path) {
+	public List<Integer> getShortestPath(int i, int j, int[][] pointer) {
 		List<Integer> res = new ArrayList<>();
 
-		// oefening 2.4
 
 		return res;
 
@@ -42,8 +40,6 @@ public class WeightedGraph {
 	public int berekenLengte(List<Integer> pad) {
 		int som = 0;
 	
-		// oefening 2.5
-		
 		return som;
 	}
 

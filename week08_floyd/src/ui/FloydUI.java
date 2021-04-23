@@ -12,7 +12,7 @@ public class FloydUI {
 		printDoubleMatrix(matrix);
 		
 		WeightedGraph g = new WeightedGraph(matrix);
-		int[][] p_matrix = g.findDistances();
+		int[][] p_matrix = g.getPointerMatrix();
 		printIntMatrix(p_matrix);
 		
 		String result = "Kortste paden: \n";
