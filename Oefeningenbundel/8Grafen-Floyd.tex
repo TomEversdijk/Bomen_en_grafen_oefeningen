@@ -53,26 +53,11 @@ Enkele paden: $2\rightarrow1\rightarrow3\rightarrow5\rightarrow6$ met lengte 8; 
 \end{oef}
 
 \begin{oef}
-\code \papier Bestudeer de klasse \verb/WeightedGraph/ die je in je IDE importeerde. 
-\begin{enumerate}
-\item In tegenstelling tot de klasse \verb/Graph/ die we schreven bij BFS, is de instantieveranderlijke nu een matrix van \verb/double/ en niet van \verb/boolean/. Waarom?
-\item Wanneer is een gewichtenmatrix geldig?
-\end{enumerate}
-\begin{opl}
-\begin{enumerate}
-\item Bij het algoritme van Floyd berekenen we  paden met minste gewicht. We hebben daarom de gewichtenmatrix nodig. De elementen van die gewichtenmatrix zijn niet meer binair ($0$ of $1$), maar kunnen alle positieve waarden aannemen.
-\item Een gewichtenmatrix is geldig als er elementen in zitten en als hij vierkant is.
-\end{enumerate}
-
-\end{opl}
-\end{oef}
-
-\begin{oef}
-\code Schrijf de methode \verb/int[][] findDistances()/. Deze methode berekent de pointermatrix $P$.
+\code Schrijf de methode \verb/int[][] getPointerMatrix()/. Deze methode berekent de pointermatrix $P$.
 \begin{itemize}
 \item De (lege) pointermatrix wordt gedeclareerd.
 \item Er wordt een kloon van de gewichtenmatrix gemaakt. Dit is een kopie die verwijst naar een andere geheugenplaats. Deze kloon is de $D$-matrix van de cursustekst.
-\item Voeg de knopen één voor één toe als tussenstation en pas de $D$-matrix aan zoals aangegeven in formule (2.3). Update de pointermatrix.
+\item Voeg de knopen één voor één toe als tussenstation en pas de $D$-matrix aan. Update de pointermatrix.
 \end{itemize}
 
 Verwachte uitvoer:
@@ -85,8 +70,8 @@ p_matrix:
 0	1	4	1	0
 \end{verbatim}
 \begin{opl}
-\begin{lstlisting}[caption={findDistances}, label=FloydfindDistances]
-public int[][] findDistances() {
+\begin{lstlisting}[caption={getPointerMatrix}, label=FloydgetPointerMatrix]
+public int[][] getPointerMatrix() {
 	int aantal = this.gewichtenMatrix.length;
 	int[][] P = new int[aantal][aantal];
 	//double[][] D = this.gewichtenMatrix.clone(); fout = shallow clone
@@ -108,7 +93,6 @@ public int[][] findDistances() {
 			}
 		}
 	}
-
 	return P;
 }
 \end{lstlisting}
@@ -119,9 +103,9 @@ public int[][] findDistances() {
 
 
 \begin{oef}
-\code Schrijf \verb/ArrayList<Integer> getShortestPath(int i, int j, int[][] path)/. Deze methode berekent uit de pointermatrix \verb/path/ het kortste pad tussen knoop \verb/i/ en knoop \verb/j/. 
+\code Schrijf \verb/ArrayList<Integer> getShortestPath(int i, int j, int[][] pointer)/. Deze methode berekent uit de pointermatrix \verb/pointer/ het kortste pad tussen knoop \verb/i/ en knoop \verb/j/. 
 
-In deze oefening geldt dezelfde opmerking over de nummering van de knopen als we maakten in oefening \ref{nummeringKnopen}. Het knooppunt dat laatst toegevoegd werd als tussenstation bij de berekening van het kortste pad tussen knooppunten \verb/i/ en \verb/j/, is \verb/path[i - 1][j - 1]/.
+In deze oefening geldt dezelfde opmerking over de nummering van de knopen als we maakten in oefening \ref{nummeringKnopen}. Het knooppunt dat laatst toegevoegd werd als tussenstation bij de berekening van het kortste pad tussen knooppunten \verb/i/ en \verb/j/, is \verb/pointer[i - 1][j - 1]/.
 
 (Deel van) de verwachte uitvoer:
 \begin{verbatim}
