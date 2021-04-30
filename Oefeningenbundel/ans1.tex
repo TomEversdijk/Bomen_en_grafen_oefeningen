@@ -1926,3 +1926,149 @@ public int[][] Dijkstra(int vanKnoop) {
                         // onthoud (index van) dit knopenpaar en hun minimum
                         knopenpaar[0] = j;
                         knopenpaar[1] = k;
+                        min = res[getAantalKnopen()][j] + res[j][k];
+                    }
+                }
+            }
+        }
+        // tussenresultaat wegschrijven indien er verbetering is
+        if (knopenpaar[0] != inf && knopenpaar[1] != inf) {
+            // nieuwe minimum
+            res[getAantalKnopen()][knopenpaar[1]] = min;
+            for (int j = 0; j < getAantalKnopen() - 1; j++) {
+                // kolom op nul zetten, maar niet op de plaats die het minimum aanlevert
+                if (j != knopenpaar[0])
+                    res[j][knopenpaar[1]] = 0;
+            }
+        }
+    }
+    return res;
+}
+\end{lstlisting}
+\end{Oplossing}
+\begin{Oplossing}{9.5}
+\begin{lstlisting}[caption=vindPad, label=DijkstravindPad]
+private ArrayList<Integer> vindPad(int vanKnoop, int naarKnoop, int[][] res) {
+    ArrayList<Integer> pad = new ArrayList<>();
+    // oefening 3.5
+    // naarKnoop, vanKnoop en k zijn namen van knopen
+    // hun index in de matrix is altijd eentje minder want de rijen/kolommen tellen vanaf 0
+    pad.add(naarKnoop);
+
+    while (naarKnoop != vanKnoop) {
+        int k = 1;
+        while (k - 1 < getAantalKnopen() && res[k - 1][naarKnoop - 1] == 0)
+            k++;
+            pad.add(0, k);
+            naarKnoop = k;
+        }
+    return pad;
+}
+\end{lstlisting}
+\end{Oplossing}
+\begin{Oplossing}{10.1}
+$1\rightarrow2\rightarrow4\rightarrow7\rightarrow10$
+of
+$1\rightarrow3\rightarrow4\rightarrow7\rightarrow10$
+\end{Oplossing}
+\begin{Oplossing}{10.2}
+$1\rightarrow4\rightarrow7\rightarrow9$
+\end{Oplossing}
+\begin{Oplossing}{10.3}
+Enkele paden: $A\rightarrow D\rightarrow C\rightarrow B\rightarrow E$;  $C\rightarrow B\rightarrow E\rightarrow D\rightarrow A$; $D\rightarrow C\rightarrow B\rightarrow E$
+\end{Oplossing}
+\begin{Oplossing}{10.4}
+\begin{equation*}
+D^{(5)}=\begin{bmatrix}
+0 & 9 & 10 & 24 & 21\\
+9 & 0 & 19 & 33 & 30\\
+2 & 11 & 0 & 14 & 11\\
+7 & 16 & 5 & 0 & 3\\
+4 & 13 & 2 & 3 &0
+\end{bmatrix}
+\qquad
+P=\begin{bmatrix}
+0 & 0 & 0 & 5 & 0\\
+0 & 0 & 1 & 5 & 3\\
+0 & 1 & 0 & 5 & 0\\
+5 & 5 & 5 & 0 & 0\\
+3 & 3 & 0 & 0 & 0
+\end{bmatrix}
+\end{equation*}
+Enkele paden: $4 \rightarrow5\rightarrow3\rightarrow1\rightarrow2$ met lengte 16; $3\rightarrow5\rightarrow4$ met lengte 14
+\end{Oplossing}
+\begin{Oplossing}{10.8}
+Om deze oefening op te lossen bekijken we de verbindingsMatrix. Als er in de verbindingsmatrix een rij bestaat met allen maar nullen (false) en als overeenkomstige kolom alleen maar eentjes (true) bevat uitgezonderd waar op de plaats waar de rij-index gelijk is aan de kolom-index, dan hebben we te maken met een vergeetput.
+     \begin{lstlisting}[caption={isVergeetput(verbindingsMatrix) methode}, label=bstaddnode]
+          public Integer isVergeetput(boolean[][] verbindingsMatrix){
+               for (int i = 0; i < verbindingsMatrix.length; i ++){
+                   boolean[] fromRow = verbindingsMatrix[i];
+                   boolean vergeetputFound = true;
+                   for(int j = 0; j < verbindingsMatrix.length; j ++){
+                       if(fromRow[j] ||  (!verbindingsMatrix[j][i] && i!=j)){
+                           vergeetputFound = false;
+                           break;
+                       }
+                   }
+                   if(vergeetputFound){
+                       return i;
+                   }
+               }
+               return null;
+           }
+          \end{lstlisting}
+
+\end{Oplossing}
+\begin{Oplossing}{10.9}
+Deze oefening is opgelost in 2 delen. \\ Het eerste deel maakt een vertaling van ons probleem waarbij 1 persoon en 1 bedrag gegeven zijn naar het zelfde probleem waarbij er n personen zijn en waar dat iedere persoon een ander bedrag kan hebben.\\
+Vervolgens roepen we een helper functie op die dat de verdeling zal maken. Deze verdeling gebeurd van links naar rechts en per diepte. Deze methode zal zichzelf recursief oproepen waarbij we steeds verder kijken naar vrienden die verder weg zijn van de oorspronkelijke winnaar.
+     \begin{lstlisting}[caption={verdeel(i, bedrag) methode}, label=bstaddnode]
+          public ArrayList<Double> verdeel(int i, double bedrag){
+               ArrayList<Double> verdeelt = new ArrayList<>();
+               ArrayList<Integer> delers = new ArrayList<>();
+               for(int j =0; j<this.getAantalKnopen(); j++) {
+                   if(i == j){
+                       verdeelt.add(bedrag);
+                       delers.add(i);
+                   }
+                   else{
+                       verdeelt.add(0.0);
+                   }
+               }
+               return verdeelHelper(verdeelt,delers);
+           }
+           private ArrayList<Double> verdeelHelper(ArrayList<Double> verdeelt,
+            ArrayList<Integer> delers){
+               if(delers.size() == 0){
+                   return verdeelt;
+               }
+               else{
+                   ArrayList<Integer> nieuweDelers = new ArrayList<>();
+                   for(int i = 0; i < delers.size(); i++){
+                       int deler = delers.get(i);
+                       boolean[] kinderen = this.verbindingsMatrix[deler];
+                       ArrayList<Integer> deelMetKinderen = new ArrayList<>();
+                       for(int j = 0; j<kinderen.length; j++){
+                           if(kinderen[j] && verdeelt.get(j) == 0.0){
+                               deelMetKinderen.add(j);
+                           }
+                       }
+                       if(deelMetKinderen.size() != 0){
+                           double verdeelValue = verdeelt.get(deler)/2;
+                           verdeelt.set(deler,verdeelValue);
+                           verdeelValue /= deelMetKinderen.size();
+                           for(int j = 0; j<deelMetKinderen.size();j++){
+                               int kind = deelMetKinderen.get(j);
+                               verdeelt.set(kind,verdeelValue);
+                               if (!nieuweDelers.contains(kind)) nieuweDelers.add(kind);
+                           }
+                       }
+                   }
+                   return verdeelHelper(verdeelt,nieuweDelers);
+               }
+           }
+          \end{lstlisting}
+\end{Oplossing}
+\begin{Oplossing}{10.10}
+
+\end{Oplossing}
