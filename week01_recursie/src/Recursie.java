@@ -58,4 +58,9 @@ public class Recursie {
         throw new UnsupportedOperationException("Not yet implemented");
     }
 
+    // oefening 11;
+    public static int aantalkaarten(int n){
+        throw new UnsupportedOperationException("Not yet implemented");
+    }
+
 }
