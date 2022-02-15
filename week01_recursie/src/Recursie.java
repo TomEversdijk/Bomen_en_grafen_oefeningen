@@ -59,7 +59,7 @@ public class Recursie {
     }
 
     // oefening 11;
-    public static int aantalkaarten(int n){
+    public static int aantalKaarten(int n){
         throw new UnsupportedOperationException("Not yet implemented");
     }
 
