@@ -531,9 +531,21 @@ public boolean removeNode(E data) {
 		}
 	} else {
 		if (this.data.compareTo(data) > 0) {//zoek in linkerboom
-			return (this.leftTree == null ? false : this.leftTree.removeNode(data));
+			if (this.leftTree == null){
+				return false;
+			} else {
+				boolean result = this.leftTree.removeNode(data);
+				this.leftTree.cleanUp();
+				return result;
+			}
 		} else {//zoek in rechterboom
-			return (this.rightTree == null ? false : this.rightTree.removeNode(data));
+			if (this.rightTree == null){
+				return false;
+			} else {
+				boolean result = this.rightTree.removeNode(data);
+				this.rightTree.cleanUp();
+				return result;
+			}
 		}
 	}
 }
