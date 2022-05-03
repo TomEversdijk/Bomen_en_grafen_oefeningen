@@ -14,7 +14,7 @@ De eerste oefening is op papier. Hiermee leer je het algoritme goed begrijpen. V
 \papier Figuur~\ref{fig:oefDijkstra1} op pagina~\pageref{fig:oefDijkstra1} toont een netwerk. De aangegeven getallen bij
 elke verbinding zijn het aantal km tussen beide knooppunten. Stel
 een lijst op met de kortste afstanden vanuit \emph{knooppunt 3} naar elk ander
-punt. Geef ook telkens de kortste route aan. Gebruik de methode van Dijkstra zoals uitgelegd in hoofdstuk 3 van de cursusnota's ``GrafenTheorie.pdf''.
+punt. Geef ook telkens de kortste route aan.
 \begin{enumerate}
 \item Pas het algoritme grafisch toe cfr.\ fig.\ 3.3 in de cursusnota's.
 \item Gebruik de tabelmethode (tabel 3.3-3.11 in de cursusnota's).
@@ -52,16 +52,11 @@ $8$ & 18 & $3 \rightarrow 1 \rightarrow 4 \rightarrow 8$ \\
 \end{opl}
 \end{oef}
 
-\begin{oef}
-\papier In tegenstelling tot het algoritme van Floyd en BFS, is het algoritme van Dijkstra zoals je het vindt in de cursus niet `reeds klaar voor Java-gebruik'. In deze eerste oefening maken we daarom de vertaling van het algoritme naar een alternatieve tabelmethode die geïmplementeerd kan worden in Java.
-
-Lees het document `oefeningAlternatieveTabelMethodeVoorDijkstra.pdf'. Los nu oefening \ref{oef:dijkstra1} nogmaals op papier op, maar nu met deze methode.
-\end{oef}
 
 \begin{oef}
 \code Je bent eindelijk klaar met het papierwerk. Je kan nu beginnen met het opzetten van de klasse \verb/Graph/.
 
-Schrijf de methode \verb/int[][] initMatrixDijkstra(int vanKnoop)/. Deze methode modelleert de gewichtenmatrix zoals uitgelegd in stap 1 en stap 2 van het document 'oefeningAlternatieveTabelMethodeVoorDijkstra.pdf'. Let op de indices die je gebruikt!
+Schrijf de methode \verb/int[][] initMatrixDijkstra(int vanKnoop)/. Deze methode modelleert de gewichtenmatrix. Let op de indices die je gebruikt!
 \begin{itemize}
 \item Er wordt een \verb/int[][]/ aangemaakt die evenveel kolommen telt als de gewichtenmatrix, maar één extra rij.
 \item Om aan te geven dat de elementen van de laatste rij leeg zijn, stellen we ze gelijk aan \verb/Integer.MAX_VALUE/. 
