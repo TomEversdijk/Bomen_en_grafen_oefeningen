@@ -1,0 +1,155 @@
+% !TEX root = B&G_oefeningen.tex
+\chapter{Complexiteitsanalyse}
+
+\begin{oef}
+\papier Wat is de Big-\(O\) tijdscomplexiteit van onderstaand algoritme? Ga ervan out dat het print statement een constante complexiteit van \(O(1)\) heeft.
+
+\begin{lstlisting}
+if (n == 1) {
+   return;
+}
+   
+for (int i = 1; i <= n; i++) {
+   for (int j = 1; j <= n; j++) {
+      System.out.println("A");
+      break;
+   }
+}
+
+\end{lstlisting}
+
+\begin{opl}
+\(O(n)\)
+\end{opl}
+\end{oef}
+
+\begin{oef}
+\papier Wat is de Big-\(O\) tijdscomplexiteit van onderstaand algoritme?
+
+\begin{lstlisting}
+int a = 0, i = n;
+while (i > 0) {
+   a += i;
+   i /= 2;
+}
+\end{lstlisting}
+
+\begin{opl}
+\(O(log(n))\)
+\end{opl}
+\end{oef}
+
+\break
+
+\begin{oef}
+\papier Wat is de Big-\(O\) tijdscomplexiteit van onderstaand algoritme?
+
+\begin{lstlisting}
+int a = 0;
+for (int i = 0; i < n; i++) {
+   for (int j = n; j > i; j--) {
+      a = a + i + j;
+   }
+}
+\end{lstlisting}
+
+\begin{opl}
+\(O(n^2)\)
+\end{opl}
+\end{oef}
+
+\begin{oef}
+\papier Wat is de Big-\(O\) tijdscomplexiteit van onderstaand algoritme?
+
+\begin{lstlisting}
+for (int i = 0; i < n; i++) {
+   i = i * k;
+}
+\end{lstlisting}
+
+\begin{opl}
+\(O(log_k(n))\)
+\end{opl}
+\end{oef}
+
+\begin{oef}
+\papier Wat is de Big-\(O\) tijdscomplexiteit van onderstaand algoritme? Ga ervan out dat het print statement een constante complexiteit van \(O(1)\) heeft.
+
+\begin{lstlisting}
+for (int i = 0; i < n; i++) {
+   for (int j = i; j < i * i; j++) {
+      if (j % i == 0) {
+         for (int k = 0; k < j; k++)
+            System.out.println("A");
+      }
+   }
+}
+\end{lstlisting}
+
+\begin{opl}
+\(O(n^5)\)
+\end{opl}
+\end{oef}
+
+\begin{oef}
+\papier Wat is de Big-\(O\) tijdscomplexiteit van het Algoritme van Floyd zoals geïmplementeerd in Les 8?
+
+\begin{opl}
+\(O(n^3)\)
+\end{opl}
+\end{oef}
+
+\break
+
+\begin{oef}
+\papier In een binaire boom, wat is de Big-\(O\) tijdscomplexiteit om:
+\begin{enumerate}
+\item een element te zoeken? 
+\item een element toe te voegen?
+\item een element toe te verwijderen?
+\end{enumerate}
+
+\begin{opl}
+\begin{enumerate}
+\item Zoeken: \(O(n)\)
+\item Toevoegen: \(O(n)\) 
+\item Verwijderen: \(O(n)\) 
+\end{enumerate}
+\end{opl}
+\end{oef}
+
+
+\begin{oef}
+\papier In een binaire zoekboom, wat is de Big-\(O\) tijdscomplexiteit om:
+\begin{enumerate}
+\item een element te zoeken? 
+\item een element toe te voegen?
+\item een element toe te verwijderen?
+\end{enumerate}
+
+\begin{opl}
+\begin{enumerate}
+\item Zoeken: \(O(n)\)
+\item Toevoegen: \(O(n)\) 
+\item Verwijderen: \(O(n)\) 
+\end{enumerate}
+\end{opl}
+\end{oef}
+
+
+\begin{oef}
+\papier In een binaire zoekboom, wat is de Big-\(\Theta\) tijdscomplexiteit om:
+\begin{enumerate}
+\item een element te zoeken? 
+\item een element toe te voegen?
+\item een element toe te verwijderen?
+\end{enumerate}
+
+\begin{opl}
+\begin{enumerate}
+\item Zoeken: \(O(h)\), met \(h\) de hoogte van de boom
+\item Toevoegen: \(O(h)\), met \(h\) de hoogte van de boom 
+\item Verwijderen: \(O(h)\), met \(h\) de hoogte van de boom 
+\end{enumerate}
+\end{opl}
+\end{oef}
